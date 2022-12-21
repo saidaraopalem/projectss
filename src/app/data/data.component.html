@@ -1,0 +1,34 @@
+<div style="margin-left: 500px; margin-bottom: 100px;">
+   From: <input type="date" name="" id="" max={{maxDate}}>
+   To: <input type="date" name="" id="" max={{tomaxDate}} >
+</div>
+<div class="chart">
+    <div class="siz">
+      <div style="display: block">
+        <canvas baseChart height="60" width="200"
+          [data]="barChartData"
+          [options]="barChartOptions"
+          [plugins]="barChartPlugins"
+          [type]="barChartType"
+          (chartHover)="chartHovered($event)"
+          (chartClick)="chartClicked($event)">
+        </canvas>
+      </div>
+      <button class="btn btn-small btn-danger " (click)="randomize()">Update</button>
+    </div>
+  </div>
+<div>
+    <div class="chart">
+        <div class="siz">
+          <div style="display: block">
+            <canvas baseChart height="60" width="200"
+              [data]="barChartDat"
+              [options]="barChartOptions"
+              [plugins]="barChartPlugins"
+              type="line"
+              (chartHover)="chartHovered($event)">
+            </canvas>
+            From: <input (change)="filterData()" type="date" name="" id="startdate" value="2022-11-14" max="2022-11-24">
+            To: <input (change)="filterData()" type="date" name="" id="enddate" value="2022-11-20" max="2022-11-24">
+      </div>
+</div>

@@ -1,0 +1,172 @@
+<head>
+    <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css'>                      
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  </head>
+  <!-- <div style="margin-left:600px;" class="searchbox">
+    <input type="search" name="" id="" [(ngModel)]="searchValue" placeholder="Search items Hear">
+  </div> -->
+  <div class="card-top container-fluid">
+    <div class="container d-flex flex-row justify-content-around" style="height:100px;">
+        <div class="item">
+            <button (click)="filter('')" class="btn btn-light">
+                <img src=".//src/assets/allproducts.jpg" alt="all products" width="85px">
+                <h6>All Products</h6>
+            </button>
+        </div>
+        <div class="item">
+            <button (click)='filter("electrical hardware")' class="btn btn-light">
+                <img src=".//src/assets/hammer.jpg" alt="harcware" width="50px">
+                <h6>Hardware</h6>
+            </button>
+        </div>
+        <div class="item">
+            <button (click)="filter('bulbs and lighting led strip')" class="btn btn-light">
+                <img src=".//src/assets/wipro-bulb.jpg" alt="bulbs and lighting stips" width="50px">
+                <h6>Bulbs</h6>
+            </button>
+        </div>
+        <div class="item">
+            <button (click)="filter('electric wires and house wiring wires')" class="btn btn-light">
+                <img src=".//src/assets/blackwirebox-2.5mm.jpg" alt="bulbs and lighting stips" width="50px">
+                <h6>House Wiring</h6>
+            </button>
+        </div>
+        <div class="item">
+            <button (click)='filter("mcb")' class="btn btn-light">
+                <img src=".//src/assets/16a-singlepole-mcb.jpg" alt="bulbs and lighting stips" width="50px">
+                <h6>MCB's</h6>
+            </button>
+        </div>
+        <div class="item">
+            <button (click)="filter('switch boxes and switches')" class="btn btn-light">
+                <img src=".//src/assets/single-switch-box.jpg" alt="bulbs and lighting stips" width="57px">
+                <h6>Switch Boxes</h6>
+            </button>
+        </div>
+    </div>
+  </div>
+  <hr>
+<div class="container d-flex flex-wrap">
+    <ng-container *ngFor="let product of filterCategory | filter:searchValue:'title'">
+        <div class="box" [ngClass]="ismenu? 'change_width':'nochange_width'">
+            <div class="body" (click)="fliping(product)">
+                <div class="imgContainer">
+                    <img src="{{product['image']}}"  alt="">
+                </div>
+                <!-- <div class="content d-flex flex-column align-items-center justify-content-center">
+                    <div>
+                        <h3 class="text-white fs-5">Somnath Temple</h3>
+                        <p class="fs-6 text-white">The Somnath temple, also called Somanātha temple or Deo Patan, is a Hindu temple located in Prabhas Patan, Veraval in Gujarat, India. It is one of the most sacred pilgrimage sites for Hindus and is believed to be first among the twelve jyotirlinga shrines of Shiva.[</p>
+                    </div>
+                </div> -->
+            </div>
+        </div>
+    </ng-container>
+</div>
+<div>{{al | json}}</div>
+    <!-- <div class="box" [ngClass]="ismenu? 'change_width':'nochange_width'" *ngIf="searchValue==='North Temples'.toLowerCase() || searchValue===''">
+        <div class="body flip2" (click)="fliping2(productList[2])">
+            <div class="imgContainer">
+                <img src=".//src/assets/Dwaraka.jpg" alt="">
+            </div>
+            <div class="content d-flex flex-column align-items-center justify-content-center">
+                <div>
+                    <h3 class="text-white fs-5">Dwaraka Temple</h3>
+                    <p class="fs-6 text-white">Dwarka has the Dwarkadhish Temple dedicated to Krishna, which is one of four sacred Hindu pilgrimage sites collectively called the Chardham, which were founded by Adi Shankaracharya (686–717 AD) at the four corners of the country.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="box" [ngClass]="ismenu? 'change_width':'nochange_width'" *ngIf="searchValue==='South Temples'.toLowerCase() || searchValue===''">
+      <div class="body flip3" (click)="fliping3(productList[3])">
+          <div class="imgContainer">
+              <img src=".//src/assets/tirupathi.jpg" alt="">
+          </div>
+          <div class="content d-flex flex-column align-items-center justify-content-center">
+              <div>
+                  <h3 class="text-white fs-5">Tirupathi Temple</h3>
+                  <p class="fs-6 text-white">Tirupati was developed by Pallava Kings from 6th century onwards.The city became a great Vaishnava centre during the time of Ramanujacharya in 11th century,</p>
+              </div>
+          </div>
+      </div>
+    </div>  
+    <div class="box" [ngClass]="ismenu? 'change_width':'nochange_width'" *ngIf="searchValue==='South Temples'.toLowerCase() || searchValue===''">
+      <div class="body flip4" (click)="fliping4(productList[4])">
+          <div class="imgContainer">
+              <img src=".//src/assets/sebarimala.jpg" alt="">
+          </div>
+          <div class="content d-flex flex-column align-items-center justify-content-center">
+              <div>
+                  <h3 class="text-white fs-5">Sabarimala Temple</h3>
+                  <p class="fs-6 text-white">Ayyappan is also known as Hariharasudhan[17] – meaning the "son of Harihara" or a fusion deity of Hari and Hara, the names given to Vishnu and Shiva respectively.[18] He is also called Manikanta from Mani, Sanskrit for precious stone,[19] and kanta, Sanskrit for neck.</p>
+              </div>
+          </div>
+      </div>
+    </div>  
+    <div class="box" [ngClass]="ismenu? 'change_width':'nochange_width'" *ngIf="searchValue==='South Temples'.toLowerCase() || searchValue===''">
+      <div class="body flip5" (click)="fliping5(productList[5])">
+          <div class="imgContainer">
+              <img src=".//src/assets/padmanabha.jpg" alt="">
+          </div>
+          <div class="content d-flex flex-column align-items-center justify-content-center">
+              <div>
+                  <h3 class="text-white fs-5">Padmanabha Temple</h3>
+                  <p class="fs-6 text-white">The principal deity Padmanabhaswamy (Vishnu) is enshrined in the "Anantha Shayana" posture, the eternal yogic sleep on the infinite serpent Adi Shesha.[5] Padmanabhaswamy is the tutelary deity of the royal family of Travancore.</p>
+              </div>
+          </div>
+      </div>
+    </div>  
+    <div class="box" [ngClass]="ismenu? 'change_width':'nochange_width'" *ngIf="searchValue==='South Temples'.toLowerCase() || searchValue===''">
+      <div class="body flip6" (click)="fliping6(productList[6])">
+          <div class="imgContainer">
+              <img src=".//src/assets/kalahasti.jpg" alt="">
+          </div>
+          <div class="content d-flex flex-column align-items-center justify-content-center">
+              <div>
+                  <h3 class="text-white fs-5">Kalahasti Temple</h3>
+                  <p class="fs-6 text-white">Srikalahasti temple, situated 36 km away from Tirupati is famous for its Vayu Lingam (Wind Lingam), one of the Panchabhoota Sthalams, representing wind. The temple is also regarded as Rahu-Ketu kshetra and Dakshina Kailasam.</p>
+              </div>
+          </div>
+      </div>
+    </div>  
+    <div class="box" [ngClass]="ismenu? 'change_width':'nochange_width'" *ngIf="searchValue==='South Temples'.toLowerCase() || searchValue===''">
+      <div class="body flip7" (click)="fliping7(productList[7])">
+          <div class="imgContainer">
+              <img src=".//src/assets/durga.jpg " alt="">
+          </div>
+          <div class="content d-flex flex-column align-items-center justify-content-center">
+              <div>
+                  <h3 class="text-white fs-5">Durga Temple</h3>
+                  <p class="fs-6 text-white">Goddess Shakti assured him it would become a reality in Satya Yuga after she killed the demon Mahishasura in the form of Durga. She asked him to assume the form a mountain on the banks of holy Krishna River and she would be seated on it to grace the devotees.</p>
+              </div>
+          </div>
+      </div>
+    </div>  
+    <div class="box" [ngClass]="ismenu? 'change_width':'nochange_width'" *ngIf="searchValue==='North Temples'.toLowerCase() || searchValue===''">
+      <div class="body flip8" (click)="fliping8(productList[8])">
+          <div class="imgContainer">
+              <img src=".//src/assets/jagannadh.jpg" alt="">
+          </div>
+          <div class="content d-flex flex-column align-items-center justify-content-center">
+              <div>
+                  <h3 class="text-white fs-5">Jagannath Temple</h3>
+                  <p class="fs-6 text-white">The Jagannath Temple is an important Hindu temple dedicated to Jagannath, a form of Vishnu - one of the trinity of supreme divinity in Hinduism, Puri is in the state of Odisha on the eastern coast of India. </p>
+              </div>
+          </div>
+      </div>
+    </div>  
+    <div class="box" [ngClass]="ismenu? 'change_width':'nochange_width'" *ngIf="searchValue==='North Temples'.toLowerCase() || searchValue===''">
+      <div class="body flip9" (click)="fliping9(productList[9])">
+          <div class="imgContainer">
+              <img src=".//src/assets/badrinadh.jpg" alt="">
+          </div>
+          <div class="content d-flex flex-column align-items-center justify-content-center">
+              <div>
+                  <h3 class="text-white fs-5">Badrinath Temple</h3>
+                  <p class="fs-6 text-white">According to the Bhagavata Purana, "There in Badrikashram, the supreme being (Vishnu), in his incarnation as the sages Nara and Narayana, had been undergoing great penance since time immemorial for the welfare of all living entities." </p>
+              </div>
+          </div>
+      </div>
+    </div>  
+    <span style="font-size: 50px; margin: auto;" *ngIf="searchValue != 'north temples' && searchValue != 'south temples' && searchValue !=''" >Sorry!...Not Found</span>
+</div> -->

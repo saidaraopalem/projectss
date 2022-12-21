@@ -1,0 +1,66 @@
+<div *ngIf="products; else err" class="container productcard">
+    <div class="header">
+        <h2 class="table-title">Manage Products</h2>
+        <button class="btn btn-small btn-danger"  (click)="deleteAll()">DeleteAll</button>
+        <button class="btn btn-small btn-danger" (click)="openForm()">Add Product</button>
+    </div>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Title</th>
+                <th>Price</th>
+                <th>Image</th>
+                <th>Category</th>
+                <th>Stock</th>
+                <th></th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody class="text-center">
+            <tr *ngFor="let product of productslist; let i = index" id="checkrow">
+                <td>{{product.id | json}}</td>
+                <td>{{product.title}} </td>
+                <td>{{product.price | json}} </td>
+                <td><img src="{{product.image}}" alt="dfsdfas" width="50px"></td>
+                <td>{{product.category}}</td>
+                <td>{{product.stock | json}} </td>
+                <td><button class="btn btn-small btn-primary" (click)="openForm(product)">Edit</button></td>
+                <td><button class="btn btn-small btn-danger" (click)="deleteProduct(product.id)">Delete</button></td>
+                <td><div class="form-check form-switch">
+                    <input class="form-check-input" (change)="checkValue(product)" value="true" type="checkbox" id="flexSwitchCheckChecked" checked>
+                    <!-- <label class="form-check-label" for="flexSwitchCheckDefault">Default switch checkbox input</label> -->
+                  </div></td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+<ng-template #err>
+    <p class="text-danger">Error fectning data</p>
+</ng-template>
+<div class="form-wrapper fm" *ngIf="showForm">
+    <div class="temple-form">
+        <h2 class="text-center text-info">{{formHeader}}</h2>
+        <div class="group">
+            <label for="">Id</label>
+            <input type="number" class="form-control" [(ngModel)]="id" name="id" required>
+        </div>
+        <div class="group">
+            <label for="">Title</label>
+            <input type="text" class="form-control" [(ngModel)]="templeName" name="name" required>
+        </div>
+        <div class="group">
+            <label for="">Price</label>
+            <input type="text" class="form-control" [(ngModel)]="price" name="price" required>
+        </div>
+        <div class="group">
+            <label for="">Quantity</label>
+            <input type="number" class="form-control" [(ngModel)]="quantity" name="quantity" required>
+        </div>
+        <div class="action">
+            <button class="btn btn-primary save" (click)="saveTemple()">Save</button>
+            <button class="btn btn-danger cancel" (click)="closeForm()">Cancel</button>
+        </div>
+    </div>
+</div>

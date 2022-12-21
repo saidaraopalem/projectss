@@ -1,0 +1,162 @@
+<!-- <html>
+    <body>
+        
+    
+<div class="container col-md-8 mx-auto">
+    <div class="card">
+        <div class="form-group">
+            <form action="#">
+            Full name
+            <input type="text" class="form-control" id="name" oninput="this.value = this.value.replace(/[^a-z A-z.]/g, '').replace(/(\..*)\./g, '$1');  required">
+            Mobile number
+            <input type="text" class="form-control" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" maxlength="10" required>
+            Pincode
+            <input type="text" class="form-control" name="pin" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" maxlength="6" required>
+            Flat,House no, Building, Company, Apartment
+            <input type="address" class="form-control">
+            Landmark
+            <input type="text" class="form-control">
+            Town/City
+            <input type="text" pattern="^[a-z A-Z]+" class="form-control" oninput="this.value = this.value.replace(/[^a-z A-z.]/g, '').replace(/(\..*)\./g, '$1');" required>
+            state
+            <select class="form-control" required>
+                <option value="Select State">Select State</option>
+                <option value="Andhra Pradesh">Andhra Pradesh</option>
+                <option value="Telangana">Telangana</option>
+                <option value="Tamilanadu">Tamilanadu</option>
+                <option value="Karnataka">Karnataka</option>
+                <option value="Kerala">Kerala</option>
+                <option value="Odisha">Odisha</option>
+              </select>
+              <input type="submit" (click)="pay(amout)" class="form-control">
+              <button type="submit" class="form-control">Paynow</button>
+            </form>
+              <button class="btn btn-small btn-danger pay" (click)="pay(amout)">Paynow</button>
+        </div>
+    </div>
+</div>
+</body>
+</html> -->
+<button (click)="pay(amout)" class="btn btn-danger pay">Paynow</button>
+
+
+<!-- <div class="register-form">
+    <form [formGroup]="form" (ngSubmit)="onSubmit()">
+      <div class="form-group">
+        <label>Full name</label>
+        <input 
+          type="text"
+          formControlName="fullname"
+          class="form-control"
+          [ngClass]="{ 'is-invalid': submitted && f['fullname'].errors }"
+        />
+        <div *ngIf="submitted && f['fullname'].errors" class="invalid-feedback">
+          <div *ngIf="f['fullname'].errors['required']">Fullname is required</div>
+        </div>
+      </div>
+  
+      <div class="form-group">
+        <label>Mobile number</label>
+        <input oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" maxlength="10"
+          type="text"
+          formControlName="username"
+          class="form-control"
+          [ngClass]="{ 'is-invalid': submitted && f['username'].errors }"
+        />
+        <div *ngIf="submitted && f['username'].errors" class="invalid-feedback">
+          <div *ngIf="f['username'].errors['required']">Username is required</div>
+          <div *ngIf="f['username'].errors['minlength']">
+            Username must be at least 6 characters
+          </div>
+          <div *ngIf="f['username'].errors['maxlength']">
+            Username must not exceed 20 characters
+          </div>
+        </div>
+      </div>
+  
+      <div class="form-group">
+        <label>Pincode</label>
+        <input oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" maxlength="6"
+          type="text"
+          formControlName="text"
+          class="form-control"
+          [ngClass]="{ 'is-invalid': submitted && f['email'].errors }"
+        />
+        <div *ngIf="submitted && f['email'].errors" class="invalid-feedback">
+          <div *ngIf="f['email'].errors['required']">Email is required</div>
+          <div *ngIf="f['email'].errors['email']">Email is invalid</div>
+        </div>
+      </div>
+  
+      <div class="form-group">
+        <label>Flat,House no, Building, Company, Apartment</label>
+        <input
+          type="text"
+          formControlName="text"
+          class="form-control"
+          [ngClass]="{ 'is-invalid': submitted && f['password'].errors }"
+        />
+        <div *ngIf="submitted && f['password'].errors" class="invalid-feedback">
+          <div *ngIf="f['password'].errors['required']">Password is required</div>
+          <div *ngIf="f['password'].errors['minlength']">
+            Password must be at least 6 characters
+          </div>
+          <div *ngIf="f['password'].errors['maxlength']">
+            Username must not exceed 40 characters
+          </div>
+        </div>
+      </div>
+      <div class="register-form">
+        <form [formGroup]="form" (ngSubmit)="onSubmit()">
+          <div class="form-group">
+            <label>Landmark</label>
+            <input
+              type="text"
+              formControlName="landmark"
+              class="form-control"
+              [ngClass]="{ 'is-invalid': submitted && f['fullname'].errors }"
+            />
+            <div *ngIf="submitted && f['fullname'].errors" class="invalid-feedback">
+              <div *ngIf="f['fullname'].errors['required']">Fullname is required</div>
+            </div>
+          </div>
+          <select class="form-control" required>
+            <option value="Select State">Select State</option>
+            <option value="Andhra Pradesh">Andhra Pradesh</option>
+            <option value="Telangana">Telangana</option>
+            <option value="Tamilanadu">Tamilanadu</option>
+            <option value="Karnataka">Karnataka</option>
+            <option value="Kerala">Kerala</option>
+            <option value="Odisha">Odisha</option>
+          </select>
+  
+      <div class="form-group form-check">
+        <input
+          type="checkbox"
+          formControlName="acceptTerms"
+          class="form-check-input"
+          [ngClass]="{ 'is-invalid': submitted && f['acceptTerms'].errors }"
+        />
+        <label for="acceptTerms" class="form-check-label"
+          >I have read and agree to the Terms</label
+        >
+        <div
+          *ngIf="submitted && f['acceptTerms'].errors"
+          class="invalid-feedback"
+        >
+          Accept Terms is required
+        </div>
+      </div>
+  
+      <div class="form-group">
+        <button type="submit" class="btn btn-primary">Paynow</button>
+        <button
+          type="button"
+          (click)="onReset()"
+          class="btn btn-warning float-right"
+        >
+          Reset
+        </button>
+      </div>
+    </form>
+  </div> -->

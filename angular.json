@@ -23,9 +23,16 @@
               "src/assets"
             ],
             "styles": [
+              "./node_modules/@videogular/ngx-videogular/fonts/videogular.css",
+              "node_modules/@fortawesome/fontawesome-free/css/all.css",
+              "node_modules/bootstrap/dist/css/bootstrap.css",
+        
               "src/styles.css"
             ],
-            "scripts": []
+            "scripts": [
+              "src/app/script.js",
+              "node_modules/bootstrap/dist/js/bootstrap.bundle.js"
+            ]
           },
           "configurations": {
             "production": {
@@ -97,5 +104,8 @@
         }
       }
     }
+  },
+  "cli": {
+    "analytics": "f9b631ef-c0d7-47f4-98ee-3c873484eb18"
   }
 }

@@ -1,0 +1,31 @@
+.container{
+    margin-left: 200px;
+    
+}
+.card{
+    height: 60vh;
+    margin: 80px;
+    padding: 25px;
+    position: relative;
+}
+.center{
+    position: absolute;
+    top: 50%;
+    left: 60%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+}
+.center img{
+    width: 250px;
+}
+.center h4,h5{
+    font-weight: 500;
+}
+.card-table{
+    color: black;
+    margin: 60px;
+    margin-left: 100px;
+}
+.card-table .table{
+    color: black;
+}

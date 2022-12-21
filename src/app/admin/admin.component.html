@@ -1,0 +1,37 @@
+<div class="loginForm" *ngIf="!login">
+    <h1>Login</h1>
+    <form [formGroup]="form" (ngSubmit)="onSubmit()">
+        <div class="form-group">
+            <label for="userId">UserId</label>
+            <input type="email"  id="userId" name="email" formControlName="email" class="form-control" [(ngModel)]="maile" required>
+            <div *ngIf="submitted && f['email'].errors" class="invalid-feedback">
+                <div *ngIf="f['email'].errors['required']">Fullname is required</div>
+              </div>
+        </div>
+        <div class="form-group">
+            <label>Password</label>
+            <input maxlength="15" minlength="8" [(ngModel)]="password" name="password"
+              type="password"
+              formControlName="password"
+              class="form-control"
+            />
+            <div *ngIf="submitted && f['password'].errors" class="invalid-feedback">
+                <div *ngIf="f['password'].errors['required']">Password is required</div>
+                <div *ngIf="f['password'].errors['minlength']">
+                  Password must be at least 6 characters
+                </div>
+                <div *ngIf="f['password'].errors['maxlength']">
+                  Username must not exceed 40 characters
+                </div>
+              </div>
+        </div>
+        <div class="form-group mt-1" *ngIf="!login">
+            <button type="submit" class="btn btn-danger mt-3" >Login</button>
+            <!-- <button type="reset" class="btn btn-danger m-3">Reset</button> -->
+        </div>
+    </form>
+</div>
+<div  *ngIf="login" style="margin-left:1100px; position: absolute; margin-top: 43px;">
+    <button [disabled]="!form.valid" type="logout" (click)="logout()" class="btn btn-danger">Logout</button>
+</div>
+<app-manageproducts *ngIf="submitted"></app-manageproducts>

@@ -1,0 +1,65 @@
+.productcard{
+    margin: auto;
+    margin-left: 300px;
+    width: 1100px;
+    padding: 20px;
+    border: 3px solid red;
+}
+.header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 30px;
+    background: linear-gradient(45deg, rgb(42, 38, 38), rgb(48, 137, 18));
+}
+.header h2{
+    color: white;
+}
+th{
+    text-align: center;
+}
+/* .fm{
+    width: 800px;
+    margin: auto; */
+/* } */
+.form-wrapper{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 400vh;
+    width: 1300px;
+    position: absolute;
+    top:0;
+   margin-top: -185px;
+    margin-left: 245px;
+    background-color: rgba(0, 0, 0,0.5);
+    z-index: 100;
+}
+.temple-form{
+    background-color: white;
+    width: 600px;
+    padding: 20px 50px;
+    border-radius: 5px;
+    position: absolute;
+    margin-top: -1500px;
+
+}
+.form-control{
+    width: 90%;
+}
+.group{
+    display: flex;
+    margin: 15px 0px;
+}
+.group label{
+    width: 70px;
+    line-height: 40px;
+    height: 40px;
+}
+.action{
+    display: flex;
+    justify-content: center;
+    gap: 100px;
+    margin: 20px;
+}
+
